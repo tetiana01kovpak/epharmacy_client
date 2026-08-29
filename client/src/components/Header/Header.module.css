@@ -1,0 +1,163 @@
+.header {
+  position: relative;
+  z-index: 5;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.transparent {
+  background: transparent;
+  border-bottom: none;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88px;
+}
+
+.desktopNav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  width: 344px;
+  height: 46px;
+  background-image: url('/icons/nav-track.svg');
+  background-repeat: no-repeat;
+}
+
+.navSlot {
+  display: flex;
+  height: 100%;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  margin: 8px;
+  border-radius: var(--radius-pill-sm);
+  font-size: 14px;
+  color: var(--color-text-disabled);
+  white-space: nowrap;
+}
+
+.navLink.active {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-hairline);
+  box-shadow: 0 -1px 7px var(--shadow-color);
+  color: var(--color-text);
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--color-badge-bg);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 600;
+}
+
+.guestActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-14);
+}
+
+.textLink {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.loginLink {
+  text-decoration: underline;
+}
+
+.registerLinkOnHero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border: 1px solid rgba(241, 241, 241, 0.5);
+  border-radius: var(--radius-full);
+  color: #f1f1f1;
+}
+
+.loginLinkOnHero {
+  color: #f1f1f1;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.hamburgerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-text);
+}
+
+.hamburgerBtnOnHero {
+  color: var(--color-surface);
+}
+
+@media (min-width: 1440px) {
+  .desktopNav {
+    display: block;
+  }
+
+  .desktopOnly {
+    display: inline-flex;
+  }
+
+  .hamburgerBtn {
+    display: none;
+  }
+}
