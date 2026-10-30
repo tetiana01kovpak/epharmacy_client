@@ -69,7 +69,7 @@ export function MedicinePage() {
           onChange={(event) => setSearchInput(event.target.value)}
         />
         <Button onClick={handleFilter} className={styles.filterBtn}>
-          Filter
+          <img src="/icons/filter.svg" alt="" /> Filter
         </Button>
       </div>
 

@@ -26,7 +26,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         </label>
         <select {...rest} ref={ref} id={selectId} className={styles.select}>
           {placeholder && (
-            <option value="" disabled>
+            <option value="">
               {placeholder}
             </option>
           )}

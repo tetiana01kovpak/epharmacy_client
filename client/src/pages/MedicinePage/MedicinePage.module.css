@@ -1,4 +1,5 @@
 .page {
+  min-height: 100%;
   padding-block: 40px 80px;
 }
 
@@ -11,6 +12,16 @@
 
 .filterBtn {
   align-self: flex-start;
+  min-width: 102px;
+  background: #55b37c;
+}
+.filterBtn img { width: 16px; height: 16px; }
+@media (min-width: 768px) {
+  .filterBar { max-width: 508px; }
+  .filterBar > :first-child, .filterBar > :nth-child(2) { flex: 1 1 190px; min-width: 0; }
+  .filterBar > :nth-child(2) { position: relative; }
+  .filterBar > :nth-child(2)::after { content: ''; position: absolute; right: 14px; top: 14px; width: 16px; height: 16px; background: url('/icons/search.svg') center / contain no-repeat; pointer-events: none; }
+  .filterBar > :nth-child(2) input { padding-right: 40px; }
 }
 
 @media (min-width: 768px) {
