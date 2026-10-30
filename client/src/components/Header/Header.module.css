@@ -69,7 +69,12 @@
   background: var(--color-surface);
   border: 1px solid var(--color-hairline);
   box-shadow: 0 -1px 7px var(--shadow-color);
-  color: var(--color-text);
+  color: var(--color-primary);
+}
+
+.cartBtn img {
+  width: 16px;
+  height: 16px;
 }
 
 .badge {
@@ -89,6 +94,12 @@
   justify-content: center;
 }
 
+.badge img {
+  width: 16px;
+  height: 16px;
+  max-width: none;
+}
+
 .avatar {
   display: flex;
   align-items: center;
@@ -96,8 +107,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--color-primary);
-  color: var(--color-surface);
+  background: rgba(89, 177, 122, 0.1);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -130,6 +141,7 @@
 .loginLinkOnHero {
   color: #f1f1f1;
 }
+.logoutOnHero { color: #fff; border-color: rgba(255,255,255,.75); }
 
 .desktopOnly {
   display: none;

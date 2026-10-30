@@ -57,13 +57,15 @@ export function Header() {
           {isLoggedIn && (
             <>
               <Link to="/cart" className={styles.cartBtn} aria-label="Cart">
-                <Icon name="shopping-cart" size={20} />
-                {totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
+                <img src="/icons/shopping-cart-green.svg" alt="" />
+                <span className={styles.badge}>
+                  {totalItems > 0 ? totalItems : <img src="/icons/cart-count-zero.svg" alt="0 items" />}
+                </span>
               </Link>
               <span className={styles.avatar} aria-hidden="true">
                 {user?.name?.[0]?.toUpperCase() ?? '?'}
               </span>
-              <Button variant="secondary" className={styles.desktopOnly} onClick={handleLogout}>
+              <Button variant="secondary" className={clsx(styles.desktopOnly, isHero && styles.logoutOnHero)} onClick={handleLogout}>
                 Log out
               </Button>
             </>
