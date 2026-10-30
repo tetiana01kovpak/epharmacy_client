@@ -3,6 +3,7 @@ import { SharedLayout } from '../layouts/SharedLayout/SharedLayout';
 import { AuthLayout } from '../layouts/AuthLayout/AuthLayout';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { MedicineStorePage } from '../pages/MedicineStorePage/MedicineStorePage';
+import { StoreDetailsPage } from '../pages/MedicineStorePage/StoreDetailsPage';
 import { MedicinePage } from '../pages/MedicinePage/MedicinePage';
 import { ProductPage } from '../pages/ProductPage/ProductPage';
 import { CartPage } from '../pages/CartPage/CartPage';
@@ -21,6 +22,7 @@ export function AppRouter() {
       <Route element={<SharedLayout />}>
         <Route path="/home" element={<HomePage />} />
         <Route path="/medicine-store" element={<MedicineStorePage />} />
+        <Route path="/medicine-store/:id" element={<StoreDetailsPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
 
         <Route element={<PrivateRoute />}>

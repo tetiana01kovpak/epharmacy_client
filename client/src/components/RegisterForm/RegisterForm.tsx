@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import type { FormikHelpers } from 'formik';
 import clsx from 'clsx';
 import { toast } from 'react-toastify';
@@ -34,8 +34,15 @@ export function RegisterForm({ submitLabel = 'Register', compact = false, onSucc
 
   return (
     <Formik initialValues={initialValues} validationSchema={registerSchema} onSubmit={handleSubmit}>
-      {({ values, handleChange, handleBlur, touched, errors }) => (
-        <Form className={styles.form} noValidate>
+      {({ values, handleChange, handleBlur, touched, errors, validateForm, handleSubmit: submitFormik }) => (
+        <form className={styles.form} noValidate onSubmit={async (event) => {
+          event.preventDefault();
+          const validationErrors = await validateForm();
+          if (Object.keys(validationErrors).length > 0) {
+            toast.error(String(Object.values(validationErrors)[0]));
+          }
+          submitFormik(event);
+        }}>
           <div className={clsx(styles.grid, compact && styles.compact)}>
             <div>
               <TextField
@@ -89,7 +96,7 @@ export function RegisterForm({ submitLabel = 'Register', compact = false, onSucc
           <Button type="submit" fullWidth disabled={isSubmitting} className={styles.submitBtn}>
             {isSubmitting ? 'Please wait...' : submitLabel}
           </Button>
-        </Form>
+        </form>
       )}
     </Formik>
   );

@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import type { FormikHelpers } from 'formik';
 import { toast } from 'react-toastify';
 import { TextField } from '../ui/TextField/TextField';
@@ -31,8 +31,15 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
 
   return (
     <Formik initialValues={initialValues} validationSchema={loginSchema} onSubmit={handleSubmit}>
-      {({ values, handleChange, handleBlur, touched, errors }) => (
-        <Form className={styles.form} noValidate>
+      {({ values, handleChange, handleBlur, touched, errors, validateForm, handleSubmit: submitFormik }) => (
+        <form className={styles.form} noValidate onSubmit={async (event) => {
+          event.preventDefault();
+          const validationErrors = await validateForm();
+          if (Object.keys(validationErrors).length > 0) {
+            toast.error(String(Object.values(validationErrors)[0]));
+          }
+          submitFormik(event);
+        }}>
           <TextField
             label="Email address"
             name="email"
@@ -57,7 +64,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
           <Button type="submit" fullWidth disabled={isSubmitting} className={styles.submitBtn}>
             {isSubmitting ? 'Please wait...' : 'Log in'}
           </Button>
-        </Form>
+        </form>
       )}
     </Formik>
   );

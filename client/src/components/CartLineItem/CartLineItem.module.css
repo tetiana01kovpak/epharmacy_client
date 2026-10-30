@@ -1,21 +1,30 @@
 .row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto;
   align-items: center;
-  gap: var(--space-14);
-  padding: var(--space-18) 0;
+  gap: 10px 14px;
+  padding: 0 0 24px;
   border-bottom: 1px solid var(--color-hairline);
+  margin-bottom: 20px;
 }
 
 .thumbnail {
-  border-radius: var(--radius-xs);
-  object-fit: cover;
+  width: 96px;
+  height: 112px;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  object-fit: contain;
   background: var(--color-surface-alt);
   flex: none;
 }
 
 .info {
-  flex: 1 1 160px;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
 }
 
 .name {
@@ -30,11 +39,20 @@
 
 .unitPrice,
 .lineTotal {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  min-width: 70px;
+  white-space: nowrap;
 }
 
+.unitPrice { grid-column: 3; grid-row: 1; }
+.row > :nth-child(4) { grid-column: 2; grid-row: 2; }
+.row > :nth-child(5) { grid-column: 2; grid-row: 3; }
+.row > :nth-child(6) { grid-column: 3; grid-row: 2 / span 2; justify-self: end; }
 .lineTotal {
   font-weight: 600;
+}
+
+@media (min-width: 1440px) {
+  .row { grid-template-columns: 122px minmax(0, 1fr) auto; gap: 14px 20px; }
+  .thumbnail { width: 122px; height: 133px; }
 }

@@ -47,23 +47,27 @@ export function ProductPage() {
 
   return (
     <div className={`container ${styles.page}`}>
-      <div className={styles.overview}>
-        <img src={product.image} alt={product.name} className={styles.image} referrerPolicy="no-referrer" />
+      <div className={styles.productLayout}>
+        <div className={styles.productColumn}>
+          <img src={product.image} alt={product.name} className={styles.image} referrerPolicy="no-referrer" />
 
-        <div className={styles.purchaseCard}>
-          <h1 className={styles.name}>{product.name}</h1>
-          <p className={styles.brand}>Brand: {product.brand}</p>
-          <Rating value={product.avgRating} />
-          <p className={styles.price}>${product.price.toFixed(2)}</p>
+          <div className={styles.purchaseCard}>
+            <div className={styles.productHeading}>
+              <div>
+                <h1 className={styles.name}>{product.name}</h1>
+                <p className={styles.brand}>Brand: {product.brand}</p>
+              </div>
+              <p className={styles.price}>₴{product.price.toFixed(0)}</p>
+            </div>
 
-          <div className={styles.purchaseRow}>
-            <QuantityStepper value={quantity} onChange={setQuantity} />
-            <Button onClick={() => handleAddToCart(product._id, quantity)}>Add to cart</Button>
+            <div className={styles.purchaseRow}>
+              <QuantityStepper value={quantity} onChange={setQuantity} />
+              <Button onClick={() => handleAddToCart(product._id, quantity)}>Add to cart</Button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.tabsPanel}>
+        <div className={styles.tabsPanel}>
         <div className={styles.tabSwitch}>
           <button
             type="button"
@@ -117,6 +121,7 @@ export function ProductPage() {
             )}
           </div>
         )}
+        </div>
       </div>
     </div>
   );

@@ -7,13 +7,15 @@
 }
 
 .heading {
-  font-size: 20px;
+  font-size: 28px;
+  line-height: 32px;
   font-weight: 600;
   color: var(--color-text);
 }
 
 .subtext {
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 20px;
   color: var(--color-text-muted-60);
   margin-bottom: var(--space-8);
 }

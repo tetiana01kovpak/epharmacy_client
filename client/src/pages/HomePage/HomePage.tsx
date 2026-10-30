@@ -78,7 +78,7 @@ export function HomePage() {
         ) : (
           <div className={styles.storeGrid}>
             {nearest.map((store) => (
-              <StoreCard key={store._id} store={store} />
+              <StoreCard key={store._id} store={store} showVisitButton={false} />
             ))}
           </div>
         )}
@@ -87,7 +87,7 @@ export function HomePage() {
       <section className={`container ${styles.ctaSection}`} id="features">
         <div className={styles.ctaBanner}>
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>Add the medicines you need online now</h2>
+            <h2 className={styles.ctaTitle}>Add your local pharmacy online now</h2>
             <p className={styles.ctaText}>
               Enjoy the convenience of having your prescriptions filled from home by connecting with your community
               pharmacy through our online platform.

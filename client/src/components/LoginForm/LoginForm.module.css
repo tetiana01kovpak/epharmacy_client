@@ -3,9 +3,9 @@
   flex-direction: column;
   gap: var(--space-14);
   width: 100%;
-  max-width: 320px;
+  max-width: 323px;
 }
 
 .submitBtn {
-  margin-top: var(--space-8);
+  margin-top: 48px;
 }

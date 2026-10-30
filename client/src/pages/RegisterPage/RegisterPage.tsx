@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 import styles from './RegisterPage.module.css';
 
@@ -7,10 +7,8 @@ export function RegisterPage() {
 
   return (
     <div className={styles.wrapper}>
-      <RegisterForm submitLabel="Register" onSuccess={() => navigate('/home')} />
-      <p className={styles.switchLink}>
-        Already have an account? <Link to="/login">Log in</Link>
-      </p>
+      <RegisterForm submitLabel="Register" onSuccess={() => navigate('/medicine', { replace: true })} />
+      <p className={styles.switchLink}>Already have an account?</p>
     </div>
   );
 }

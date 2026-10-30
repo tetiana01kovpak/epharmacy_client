@@ -5,7 +5,7 @@
 .layout {
   display: flex;
   flex-direction: column-reverse;
-  gap: 32px;
+  gap: 24px;
   margin-top: 24px;
 }
 
@@ -13,7 +13,7 @@
 .itemsCard {
   background: var(--color-surface);
   border-radius: var(--radius-card);
-  padding: 32px;
+  padding: 40px;
 }
 
 .shippingCard {
@@ -42,7 +42,8 @@
 
 .paymentOptions {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .radioOption {
@@ -56,10 +57,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--color-primary-10);
+  background: #e7f1ed;
   border-radius: var(--radius-xs);
   padding: var(--space-14) var(--space-18);
   margin-bottom: var(--space-8);
+}
+
+.placeOrderButton {
+  width: 141px;
+  height: 44px;
+  padding: 13px 32px;
 }
 
 .emptyState {
@@ -73,6 +80,7 @@
 }
 
 @media (min-width: 1440px) {
+  .page { padding-top: 84px; }
   .layout {
     flex-direction: row;
     align-items: flex-start;
@@ -83,6 +91,8 @@
   }
 
   .itemsCard {
-    flex: 1;
+    flex: 0 0 460px;
+    background: transparent;
+    padding: 0;
   }
 }

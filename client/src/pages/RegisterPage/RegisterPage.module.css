@@ -3,10 +3,11 @@
   flex-direction: column;
   gap: var(--space-14);
   width: 100%;
-  max-width: 400px;
+  max-width: 574px;
 }
 
 .switchLink {
+  width: 280px;
   font-size: 13px;
   color: var(--color-text-muted-60);
   text-align: center;

@@ -1,15 +1,16 @@
 import { Icon } from '../ui/Icon/Icon';
 import { Rating } from '../ui/Rating/Rating';
 import { StatusBadge } from '../ui/StatusBadge/StatusBadge';
-import { Button } from '../ui/Button/Button';
 import type { Store } from '../../types';
+import { Link } from 'react-router-dom';
 import styles from './StoreCard.module.css';
 
 type StoreCardProps = {
   store: Store;
+  showVisitButton?: boolean;
 };
 
-export function StoreCard({ store }: StoreCardProps) {
+export function StoreCard({ store, showVisitButton = true }: StoreCardProps) {
   const [addressLine1, ...addressRest] = store.address.split(', ');
   const addressLine2 = addressRest.join(', ');
 
@@ -23,27 +24,42 @@ export function StoreCard({ store }: StoreCardProps) {
 
       <div className={styles.header}>
         <h3 className={styles.name}>{store.name}</h3>
-        <div className={styles.headerRight}>
-          <Rating value={store.rating} />
-          <StatusBadge isOpen={store.isOpen} />
-        </div>
       </div>
 
       <p className={styles.detail}>
-        <Icon name="map-pin" size={18} />
+        <img className={styles.detailIcon} src="/icons/map-pin-green.svg" alt="" />
         <span className={styles.addressLines}>
           <span>{addressLine1}</span>
           {addressLine2 && <span>{addressLine2}</span>}
         </span>
       </p>
       <p className={styles.detail}>
-        <Icon name="phone" size={18} />
+        <img className={styles.detailIcon} src="/icons/phone-green.svg" alt="" />
         {store.phone}
       </p>
+      {showVisitButton && (
+        <div className={styles.footer}>
+          <Link to={`/medicine-store/${store._id}`} className={styles.visitButton}>Visit Store</Link>
+          <div className={styles.headerRight}>
+            <Rating value={store.rating} />
+            <StatusBadge isOpen={store.isOpen} />
+          </div>
+        </div>
+      )}
+      {!showVisitButton && (
+        <div className={styles.cardMeta}>
+          <Rating value={store.rating} />
+          <StatusBadge isOpen={store.isOpen} />
+        </div>
+      )}
+      {!showVisitButton && (
+        <Link
+          to={`/medicine-store/${store._id}`}
+          className={styles.cardOverlayLink}
+          aria-label={`View ${store.name} details`}
+        />
+      )}
 
-      <div className={styles.footer}>
-        <Button variant="secondary">Visit Store</Button>
-      </div>
     </article>
   );
 }

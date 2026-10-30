@@ -27,11 +27,11 @@ export function CartLineItem({ item, onQuantityChange, onRemove }: CartLineItemP
         <p className={styles.brand}>{item.brand}</p>
       </div>
 
-      <p className={styles.unitPrice}>${item.price.toFixed(2)}</p>
+      <p className={styles.unitPrice}>₴{item.price.toFixed(2)}</p>
 
       <QuantityStepper value={item.quantity} onChange={(quantity) => onQuantityChange(item.productId, quantity)} />
 
-      <p className={styles.lineTotal}>${item.lineTotal.toFixed(2)}</p>
+      <p className={styles.lineTotal}>₴{item.lineTotal.toFixed(2)}</p>
 
       <Button variant="danger" onClick={() => onRemove(item.productId)}>
         Remove

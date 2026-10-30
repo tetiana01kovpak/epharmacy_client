@@ -137,10 +137,10 @@ export function CartPage() {
 
               <div className={styles.totalRow}>
                 <span>Total:</span>
-                <strong>${totalPrice.toFixed(2)}</strong>
+                <strong>₴{totalPrice.toFixed(2)}</strong>
               </div>
 
-              <Button type="submit" fullWidth disabled={isSubmitting || items.length === 0}>
+              <Button type="submit" className={styles.placeOrderButton} disabled={isSubmitting || items.length === 0}>
                 {isSubmitting ? 'Placing order...' : 'Place order'}
               </Button>
             </Form>

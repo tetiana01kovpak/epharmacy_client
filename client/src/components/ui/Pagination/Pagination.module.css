@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
+  gap: 24px;
   margin-top: 40px;
 }
 
@@ -11,8 +11,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 1px solid rgba(29, 30, 33, 0.05);
   border-radius: 50%;
   color: var(--color-text);
 }
@@ -27,16 +29,31 @@
   cursor: not-allowed;
 }
 
+.arrowGroup,
+.pageGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrowGroup:last-child .arrowBtn:not(:disabled) { border-color: rgba(29, 30, 33, 0.2); }
+.arrowGroup:first-child .arrowBtn:disabled { border-color: rgba(29, 30, 33, 0.05); }
+
 .pageBtn.active {
   background: var(--color-primary);
   color: var(--color-surface);
+  border-color: var(--color-primary);
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .ellipsis {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  font-size: 20px;
   color: var(--color-text-muted-40);
 }

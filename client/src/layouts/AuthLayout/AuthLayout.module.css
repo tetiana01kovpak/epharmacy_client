@@ -38,8 +38,11 @@
   width: 100%;
 }
 
+.elements { display: none; }
+
 @media (min-width: 768px) {
   .page {
+    position: relative;
     padding: 32px;
   }
 
@@ -58,12 +61,20 @@
   .brandPane {
     flex: 1;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  }
+
+  .logo {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    margin: 0;
   }
 
   .headline {
+    position: absolute;
+    top: 37.25%;
+    left: 0;
+    width: 614px;
     font-size: 54px;
     line-height: 60px;
   }
@@ -71,39 +82,33 @@
   .decoration {
     display: block;
     position: absolute;
-    right: -80px;
-    bottom: 40px;
-    width: 400px;
-    height: 300px;
+    left: 416px;
+    top: 198px;
+    width: 180px;
+    height: 180px;
+    z-index: 0;
   }
 
-  .pill {
-    position: absolute;
-    width: 320px;
-    height: 68px;
-    background: var(--color-primary-10);
-    border-radius: 60px 0 0 60px;
-    transform: rotate(22deg);
-  }
-
-  .pill:nth-child(1) {
-    top: 40px;
-    left: 20px;
-  }
-
-  .pill:nth-child(2) {
-    top: 110px;
-    left: 60px;
-  }
-
-  .pill:nth-child(3) {
-    top: 180px;
-    left: 0;
+  .decoration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .formPane {
     flex: 1;
     display: flex;
     justify-content: center;
+    z-index: 1;
+  }
+
+  .elements {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 279px;
+    height: 257px;
+    pointer-events: none;
   }
 }

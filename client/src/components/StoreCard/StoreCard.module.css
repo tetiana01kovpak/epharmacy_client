@@ -11,6 +11,18 @@
   gap: var(--space-14);
 }
 
+.cardOverlayLink {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.cardOverlayLink:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 .decor {
   position: absolute;
   inset: 0;
@@ -71,6 +83,13 @@
   color: var(--color-text-disabled);
 }
 
+.detailIcon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin-top: 2px;
+}
+
 .addressLines {
   display: flex;
   flex-direction: column;
@@ -78,5 +97,28 @@
 }
 
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: var(--space-8);
+}
+
+.visitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  height: 36px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: var(--radius-full);
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-14);
   margin-top: var(--space-8);
 }

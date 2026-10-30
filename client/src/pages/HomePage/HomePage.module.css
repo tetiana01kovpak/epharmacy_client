@@ -147,7 +147,7 @@
 .promoLink {
   font-size: 13px;
   color: var(--color-text-disabled);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .section {

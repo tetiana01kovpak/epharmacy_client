@@ -5,13 +5,13 @@ import { AuthRequiredModal } from '../../components/AuthRequiredModal/AuthRequir
 
 export function SharedLayout() {
   return (
-    <>
+    <div style={{ minHeight: '100%', display: 'flex', flexDirection: 'column' }}>
       <Header />
-      <main>
+      <main style={{ flex: 1 }}>
         <Outlet />
       </main>
       <Footer />
       <AuthRequiredModal />
-    </>
+    </div>
   );
 }

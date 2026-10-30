@@ -2,31 +2,45 @@
   padding-block: 40px 80px;
 }
 
-.overview {
+.productLayout {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+.productColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .image {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--radius-modal);
-  background: var(--color-surface-alt);
+  aspect-ratio: 364 / 337;
+  object-fit: contain;
+  border: 1px solid var(--color-primary-50);
+  border-radius: var(--radius-card);
+  background: transparent;
 }
 
 .purchaseCard {
   background: var(--color-surface);
   border-radius: var(--radius-card);
-  padding: 24px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: 12px;
+}
+
+.productHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .name {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .brand {
@@ -35,23 +49,23 @@
 }
 
 .price {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
-  margin-top: var(--space-8);
+  white-space: nowrap;
 }
 
 .purchaseRow {
   display: flex;
   align-items: center;
-  gap: var(--space-14);
-  margin-top: var(--space-14);
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .tabsPanel {
   background: var(--color-surface);
   border-radius: var(--radius-card);
   padding: 24px;
-  margin-top: 32px;
 }
 
 .tabSwitch {
@@ -79,9 +93,9 @@
   margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-14);
+  gap: 20px;
   color: var(--color-text-muted-60);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .reviews {
@@ -95,16 +109,29 @@
 }
 
 @media (min-width: 768px) {
-  .overview {
-    flex-direction: row;
-    align-items: flex-start;
+  .productLayout {
+    display: grid;
+    grid-template-columns: minmax(260px, 364px) minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
   }
 
-  .image {
-    max-width: 382px;
+  .tabsPanel {
+    min-height: 520px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page {
+    padding-top: 84px;
   }
 
-  .purchaseCard {
-    flex: 1;
+  .productLayout {
+    grid-template-columns: 364px minmax(0, 800px);
+  }
+
+  .tabsPanel {
+    min-height: 709px;
+    padding: 40px;
   }
 }

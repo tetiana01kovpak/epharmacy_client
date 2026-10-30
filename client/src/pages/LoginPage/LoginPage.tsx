@@ -6,7 +6,8 @@ export function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? '/home';
+  const returnLocation = (location.state as { from?: { pathname: string; search?: string } })?.from;
+  const from = returnLocation ? `${returnLocation.pathname}${returnLocation.search ?? ''}` : '/home';
 
   return (
     <div className={styles.wrapper}>

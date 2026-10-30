@@ -16,7 +16,17 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
 
   return (
     <nav className={styles.pagination} aria-label="Pagination">
-      <button
+      <div className={styles.arrowGroup}>
+        <button
+          type="button"
+          className={styles.arrowBtn}
+          onClick={() => onPageChange(1)}
+          disabled={currentPage === 1}
+          aria-label="First page"
+        >
+          <Icon name="chevron-left" size={16} /><Icon name="chevron-left" size={16} />
+        </button>
+        <button
         type="button"
         className={styles.arrowBtn}
         onClick={() => onPageChange(currentPage - 1)}
@@ -24,9 +34,10 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         aria-label="Previous page"
       >
         <Icon name="chevron-left" size={16} />
-      </button>
+        </button>
+      </div>
 
-      {pages.map((page, index) =>
+      <div className={styles.pageGroup}>{pages.map((page, index) =>
         page === ELLIPSIS ? (
           <span key={`ellipsis-${index}`} className={styles.ellipsis}>
             {ELLIPSIS}
@@ -42,9 +53,10 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
             {page}
           </button>
         ),
-      )}
+      )}</div>
 
-      <button
+      <div className={styles.arrowGroup}>
+        <button
         type="button"
         className={styles.arrowBtn}
         onClick={() => onPageChange(currentPage + 1)}
@@ -52,7 +64,17 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         aria-label="Next page"
       >
         <Icon name="chevron-right" size={16} />
-      </button>
+        </button>
+        <button
+          type="button"
+          className={styles.arrowBtn}
+          onClick={() => onPageChange(totalPages)}
+          disabled={currentPage === totalPages}
+          aria-label="Last page"
+        >
+          <Icon name="chevron-right" size={16} /><Icon name="chevron-right" size={16} />
+        </button>
+      </div>
     </nav>
   );
 }

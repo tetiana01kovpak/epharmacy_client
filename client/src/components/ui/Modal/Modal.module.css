@@ -14,7 +14,7 @@
   width: 100%;
   max-width: 343px;
   background: var(--color-surface);
-  border-radius: var(--radius-modal);
+  border-radius: 20px;
   padding: 40px 32px;
   max-height: 90vh;
   overflow-y: auto;
