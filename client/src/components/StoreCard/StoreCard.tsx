@@ -1,4 +1,3 @@
-import { Icon } from '../ui/Icon/Icon';
 import { Rating } from '../ui/Rating/Rating';
 import { StatusBadge } from '../ui/StatusBadge/StatusBadge';
 import type { Store } from '../../types';

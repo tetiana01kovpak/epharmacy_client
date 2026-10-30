@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { Button } from '../../components/ui/Button/Button';
 import { QuantityStepper } from '../../components/ui/QuantityStepper/QuantityStepper';
-import { Rating } from '../../components/ui/Rating/Rating';
 import { Pagination } from '../../components/ui/Pagination/Pagination';
 import { Loader } from '../../components/ui/Loader/Loader';
 import { ReviewCard } from '../../components/ReviewCard/ReviewCard';
